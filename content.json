@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "author": "부산지방고용노동청 디지털포렌식팀",
+    "body_scale": "1.5",
+    "deck_title": "디지털포렌식과 형사소송법",
+    "scaffold": "amber-gold",
+    "sub": "제1강 법치주의 국가의 수사권한",
+    "title": "디지털포렌식과 형사소송법"
+  },
+  "slides": [
+    {
+      "author": "부산지방고용노동청 디지털포렌식팀",
+      "date": "2026.07.02",
+      "kicker": "PRESENTATION",
+      "signature": "",
+      "subtitle": "수사는 왜 국민의 기본권을 제한할 수 있나",
+      "title_en": "제1강 법치주의 국가의 수사권한",
+      "title_ko": "디지털포렌식과 형사소송법",
+      "type": "title"
+    },
+    {
+      "_도움말": "목차는 비워 두세요. build 하면 덱 안의 chapter 슬라이드 제목·번호가 자동으로 채워집니다.",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "",
+      "type": "toc"
+    },
+    {
+      "signature": "chapter // {{chapter_num}} of {{chapter_total}}",
+      "title_en": "chapter 1",
+      "title_ko": "디지털 포렌식",
+      "type": "chapter"
+    },
+    {
+      "caption": "",
+      "figure_html": "<img src=\"images/그림2.jpg\" width=100%>",
+      "footer_note": "",
+      "heading_en": "introducing digital forensics without the law",
+      "heading_ko": "디지털 포렌식의 일반적 소개",
+      "type": "visual"
+    },
+    {
+      "caption": "",
+      "figure_html": "<img src=\"images/그림1.jpg\" width=100%>",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "디지털 포렌식 수사의 근거",
+      "type": "visual"
+    },
+    {
+      "caption": "",
+      "figure_html": "<img src=\"images/슬라이드2.PNG\" style=\"width: 100%;\">",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "형사소송법을 알아야 하는 이유",
+      "type": "visual"
+    },
+    {
+      "caption": "",
+      "figure_html": "<img src=\"images/슬라이드4.PNG\" style=\"width: 100%;\">",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "일상적 포렌식 절차와 형사소송법",
+      "type": "visual"
+    },
+    {
+      "_도움말": "figure_html 에 <img src=\"C:/사진/a.jpg\"> 또는 <video src=...> 또는 <table>...</table> 를 넣으세요. 사진·영상은 절대경로나 파일명을 적고 build 하면 덱 images//videos/ 로 자동 복사·경로 정리됩니다.",
+      "caption": "",
+      "figure_html": "<img src=\"images/슬라이드2.PNG\" style=\"width: 100%;\">",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "훌륭한 포렌식 수사관이 되는 방법",
+      "type": "visual"
+    },
+    {
+      "chapter_figure": "",
+      "signature": "section // {{chapter_num}} of {{chapter_total}}",
+      "title_en": "chapter 2",
+      "title_ko": "형사소송법의 근원",
+      "type": "chapter"
+    },
+    {
+      "caption": "",
+      "figure_html": "<img src=\"images/슬라이드7.PNG\" style=\"width: 100%;\">",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "자유민주주의 국가와 국민의 기본권 보장",
+      "type": "visual"
+    },
+    {
+      "caption": "기본권 제한의 법률주의와 영장주의",
+      "figure_html": "<img src=\"images/슬라이드8.PNG\" style=\"width: 100%;\">",
+      "footer_note": "",
+      "heading_en": "of the people, by the people, for the people",
+      "heading_ko": "국민의, 국민에 의한, 국민을 위한 ",
+      "type": "visual"
+    },
+    {
+      "chapter_figure": "",
+      "signature": "section // {{chapter_num}} of {{chapter_total}}",
+      "title_en": "chapter 3",
+      "title_ko": "형사소송법과 하위 법규",
+      "type": "chapter"
+    },
+    {
+      "caption": "국가법령센터 상하위법을 보는 습관 기르기",
+      "figure_html": "<img src=\"images/그림4.png\" style=\"width: 100%;\">",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "형사소송법 하위 체계",
+      "type": "visual"
+    },
+    {
+      "caption": "",
+      "figure_html": "<img src=\"images/그림5.png\" style=\"width: 100%;\">",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "우리 기관과 주요 기관의 포렌식 규정",
+      "type": "visual"
+    },
+    {
+      "caption": "법률은 국회가 제정, 법규는 법규명령 및 행정규칙까지도 포함",
+      "figure_html": "<img src=\"images/그림6.png\">",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "법률과 법규의 차이",
+      "type": "visual"
+    },
+    {
+      "body_html": "<ul><li>절차적 구성요소</li><li>서식의 종류와 변천</li></ul>",
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "실습: 우리부 포렌식 규정 함께 읽기",
+      "type": "content"
+    },
+    {
+      "footer_note": "",
+      "heading_en": "",
+      "heading_ko": "핵심 정리",
+      "lead": "기본권 제한은 최소한, 적절하게",
+      "points_html": "<li>디지털 포렌식의 법적 근거</li><li>기본권 제한의 근거</li><li>형사소송법과 하위 법규</li>",
+      "type": "summary"
+    },
+    {
+      "closing_en": "Thank You",
+      "closing_ko": "감사합니다",
+      "contact": "",
+      "prompt": "질문을 환영합니다 · Q&A",
+      "signature": "",
+      "type": "closing"
+    }
+  ]
+}

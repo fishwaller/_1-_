@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>디지털포렌식과 형사소송법</title>
+
+<!-- ─────────────────────────────────────────────
+  AI Context Header — self-describing deck
+  이 파일은 외부 AI에게 전달되어도 단독으로 분석 가능해야 함.
+  - 슬라이드 = <section class="slide type-*"> 요소
+  - 정확한 슬라이드 수는 head의 <script id="deckManifest">.slideCount 참고
+  - 테마 토큰은 theme.css의 :root 변수 참조
+  - 스캐폴드 출처: amber-gold (Amber Gold · 노란색) · gen_themes.py
+───────────────────────────────────────────── -->
+
+<meta name="deck:scaffold" content="amber-gold">
+<meta name="deck:slide-count" content="18">
+
+<script type="application/json" id="deckManifest">
+{
+  "deck_title": "디지털포렌식과 형사소송법",
+  "scaffold": "amber-gold",
+  "slide_count": 18,
+  "chapter_count": 3,
+  "slides": [
+    {
+      "index": 0,
+      "type": "title",
+      "title": "디지털포렌식과 형사소송법"
+    },
+    {
+      "index": 1,
+      "type": "toc",
+      "title": "목차"
+    },
+    {
+      "index": 2,
+      "type": "chapter",
+      "title": "디지털 포렌식"
+    },
+    {
+      "index": 3,
+      "type": "visual",
+      "title": "디지털 포렌식의 일반적 소개"
+    },
+    {
+      "index": 4,
+      "type": "visual",
+      "title": "디지털 포렌식 수사의 근거"
+    },
+    {
+      "index": 5,
+      "type": "visual",
+      "title": "형사소송법을 알아야 하는 이유"
+    },
+    {
+      "index": 6,
+      "type": "visual",
+      "title": "일상적 포렌식 절차와 형사소송법"
+    },
+    {
+      "index": 7,
+      "type": "visual",
+      "title": "훌륭한 포렌식 수사관이 되는 방법"
+    },
+    {
+      "index": 8,
+      "type": "chapter",
+      "title": "형사소송법의 근원"
+    },
+    {
+      "index": 9,
+      "type": "visual",
+      "title": "자유민주주의 국가와 국민의 기본권 보장"
+    },
+    {
+      "index": 10,
+      "type": "visual",
+      "title": "국민의, 국민에 의한, 국민을 위한 "
+    },
+    {
+      "index": 11,
+      "type": "chapter",
+      "title": "형사소송법과 하위 법규"
+    },
+    {
+      "index": 12,
+      "type": "visual",
+      "title": "형사소송법 하위 체계"
+    },
+    {
+      "index": 13,
+      "type": "visual",
+      "title": "우리 기관과 주요 기관의 포렌식 규정"
+    },
+    {
+      "index": 14,
+      "type": "visual",
+      "title": "법률과 법규의 차이"
+    },
+    {
+      "index": 15,
+      "type": "content",
+      "title": "실습: 우리부 포렌식 규정 함께 읽기"
+    },
+    {
+      "index": 16,
+      "type": "summary",
+      "title": "핵심 정리"
+    },
+    {
+      "index": 17,
+      "type": "closing",
+      "title": "감사합니다"
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+<link rel="stylesheet" href="theme.css">
+
+<style>
+  /* 슬라이드 네비게이션 (프로토타입) */
+  body { background: #000; --body-scale: 1.5; }
+
+  /* 본문 글자 크기 조절 — 편집기 '덱 설정 > 본문 글자 크기'가 --body-scale 을 주입.
+     theme.css(위의 <link>) 뒤에 와서 본문 계열 font-size만 덮어쓴다(제목류 제외).
+     값 누락 시 var fallback=1 → 외관 불변. 기준값은 전 테마 공통. */
+  .content-body        { font-size: calc(1.4rem  * var(--body-scale, 1)); }
+  .summary-lead        { font-size: calc(1.4rem  * var(--body-scale, 1)); }
+  .summary-points li   { font-size: calc(1.25rem * var(--body-scale, 1)); }
+  .visual-figure table { font-size: calc(1.1rem  * var(--body-scale, 1)); }
+  .visual-caption      { font-size: calc(0.95rem * var(--body-scale, 1)); }
+  .deck { position: relative; width: 100vw; height: 100vh; }
+  .deck > .slide {
+    position: absolute; inset: 0;
+    opacity: 0; visibility: hidden;
+    pointer-events: none;
+  }
+  .deck > .slide.active {
+    opacity: 1; visibility: visible;
+    pointer-events: auto;
+  }
+  .nav {
+    position: fixed; bottom: 2vh; left: 50%; transform: translateX(-50%);
+    z-index: 100; display: flex; gap: 0.5rem;
+    font-family: 'Inter', sans-serif; font-size: 0.7rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .nav button {
+    background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.3);
+    color: white; padding: 0.4em 0.9em; cursor: pointer;
+    font-family: inherit; letter-spacing: 0.2em;
+  }
+  .nav button:hover { background: rgba(255,255,255,0.1); }
+</style>
+</head>
+<body>
+
+<div class="deck">
+<section class="slide type-title" data-slide-type="title">
+
+  <div class="wordmark">START</div>
+  <div class="bubbles"></div>
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="title-hero">
+    <div class="title-kicker">PRESENTATION</div>
+    <h1 class="title-ko">디지털포렌식과 형사소송법</h1>
+    <div class="divider"></div>
+    <div class="title-en">제1강 법치주의 국가의 수사권한</div>
+    <p class="title-sub">수사는 왜 국민의 기본권을 제한할 수 있나</p>
+  </div>
+
+  <div class="title-byline">
+    <span class="author">부산지방고용노동청 디지털포렌식팀</span>
+    <span class="sep"></span>
+    <span class="date">2026.07.02</span>
+  </div>
+
+  <div class="signature"></div>
+
+</section>
+
+<section class="slide type-toc" data-slide-type="toc">
+
+  <div class="wordmark">INDEX</div>
+  <div class="bubbles"></div>
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="toc-head">
+    <div class="heading-en">Contents</div>
+    <h2 class="heading-ko">목차</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <ol class="toc-list">
+    <li class="toc-item" style="--i: 0;">
+  <span class="toc-num">01</span>
+  <span class="toc-text">
+    <span class="toc-ko">디지털 포렌식</span>
+    <span class="toc-en">chapter 1</span>
+  </span>
+</li>
+
+<li class="toc-item" style="--i: 1;">
+  <span class="toc-num">02</span>
+  <span class="toc-text">
+    <span class="toc-ko">형사소송법의 근원</span>
+    <span class="toc-en">chapter 2</span>
+  </span>
+</li>
+
+<li class="toc-item" style="--i: 2;">
+  <span class="toc-num">03</span>
+  <span class="toc-text">
+    <span class="toc-ko">형사소송법과 하위 법규</span>
+    <span class="toc-en">chapter 3</span>
+  </span>
+</li>
+
+  </ol>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-chapter" data-slide-type="chapter">
+
+  <div class="wordmark">CHAPTER</div>
+  <div class="bubbles"></div>
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 33%;">
+    <span class="now">01</span>
+    <span class="total"> / 03</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="chapter-figure"></div>
+
+  <div class="main">
+    <div class="chapter-kicker">
+      <span class="label">Chapter</span>
+      <span class="num">01</span>
+    </div>
+    <div class="chapter-title">디지털 포렌식</div>
+    <div class="divider"></div>
+    <div class="chapter-en">chapter 1</div>
+  </div>
+
+  <div class="signature">chapter // 01 of 03</div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 22%;">
+    <span class="now">C.01</span>
+    <span class="total"> · 04/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en">introducing digital forensics without the law</div>
+    <h2 class="heading-ko">디지털 포렌식의 일반적 소개</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/그림2.jpg" width=100%>
+    </div>
+    <div class="visual-caption"></div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 27%;">
+    <span class="now">C.01</span>
+    <span class="total"> · 05/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">디지털 포렌식 수사의 근거</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/그림1.jpg" width=100%>
+    </div>
+    <div class="visual-caption"></div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 33%;">
+    <span class="now">C.01</span>
+    <span class="total"> · 06/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">형사소송법을 알아야 하는 이유</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/슬라이드2.PNG" style="width: 100%;">
+    </div>
+    <div class="visual-caption"></div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 38%;">
+    <span class="now">C.01</span>
+    <span class="total"> · 07/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">일상적 포렌식 절차와 형사소송법</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/슬라이드4.PNG" style="width: 100%;">
+    </div>
+    <div class="visual-caption"></div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 44%;">
+    <span class="now">C.01</span>
+    <span class="total"> · 08/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">훌륭한 포렌식 수사관이 되는 방법</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/슬라이드2.PNG" style="width: 100%;">
+    </div>
+    <div class="visual-caption"></div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-chapter" data-slide-type="chapter">
+
+  <div class="wordmark">CHAPTER</div>
+  <div class="bubbles"></div>
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 66%;">
+    <span class="now">02</span>
+    <span class="total"> / 03</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="chapter-figure"></div>
+
+  <div class="main">
+    <div class="chapter-kicker">
+      <span class="label">Chapter</span>
+      <span class="num">02</span>
+    </div>
+    <div class="chapter-title">형사소송법의 근원</div>
+    <div class="divider"></div>
+    <div class="chapter-en">chapter 2</div>
+  </div>
+
+  <div class="signature">section // 02 of 03</div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 55%;">
+    <span class="now">C.02</span>
+    <span class="total"> · 10/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">자유민주주의 국가와 국민의 기본권 보장</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/슬라이드7.PNG" style="width: 100%;">
+    </div>
+    <div class="visual-caption"></div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 61%;">
+    <span class="now">C.02</span>
+    <span class="total"> · 11/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en">of the people, by the people, for the people</div>
+    <h2 class="heading-ko">국민의, 국민에 의한, 국민을 위한 </h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/슬라이드8.PNG" style="width: 100%;">
+    </div>
+    <div class="visual-caption">기본권 제한의 법률주의와 영장주의</div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-chapter" data-slide-type="chapter">
+
+  <div class="wordmark">CHAPTER</div>
+  <div class="bubbles"></div>
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 100%;">
+    <span class="now">03</span>
+    <span class="total"> / 03</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="chapter-figure"></div>
+
+  <div class="main">
+    <div class="chapter-kicker">
+      <span class="label">Chapter</span>
+      <span class="num">03</span>
+    </div>
+    <div class="chapter-title">형사소송법과 하위 법규</div>
+    <div class="divider"></div>
+    <div class="chapter-en">chapter 3</div>
+  </div>
+
+  <div class="signature">section // 03 of 03</div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 72%;">
+    <span class="now">C.03</span>
+    <span class="total"> · 13/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">형사소송법 하위 체계</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/그림4.png" style="width: 100%;">
+    </div>
+    <div class="visual-caption">국가법령센터 상하위법을 보는 습관 기르기</div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 77%;">
+    <span class="now">C.03</span>
+    <span class="total"> · 14/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">우리 기관과 주요 기관의 포렌식 규정</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/그림5.png" style="width: 100%;">
+    </div>
+    <div class="visual-caption"></div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-visual" data-slide-type="visual">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 83%;">
+    <span class="now">C.03</span>
+    <span class="total"> · 15/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="visual-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">법률과 법규의 차이</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <div class="visual-stage">
+    <div class="visual-figure">
+      <img src="images/그림6.png">
+    </div>
+    <div class="visual-caption">법률은 국회가 제정, 법규는 법규명령 및 행정규칙까지도 포함</div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-content" data-slide-type="content">
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 88%;">
+    <span class="now">C.03</span>
+    <span class="total"> · 16/18</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="content-grid">
+    <div class="content-heading">
+      <div class="heading-en"></div>
+      <h2 class="heading-ko">실습: 우리부 포렌식 규정 함께 읽기</h2>
+      <div class="heading-bar"></div>
+    </div>
+    <div class="content-body">
+      <ul><li>절차적 구성요소</li><li>서식의 종류와 변천</li></ul>
+    </div>
+  </div>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-summary" data-slide-type="summary">
+
+  <div class="wordmark">KEY</div>
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="progress-tr" style="--progress-pct: 94%;">
+    <span class="now">C.03</span>
+    <div class="bar"></div>
+  </div>
+
+  <div class="summary-head">
+    <div class="heading-en"></div>
+    <h2 class="heading-ko">핵심 정리</h2>
+    <div class="heading-bar"></div>
+  </div>
+
+  <p class="summary-lead">기본권 제한은 최소한, 적절하게</p>
+
+  <ol class="summary-points">
+    <li>디지털 포렌식의 법적 근거</li><li>기본권 제한의 근거</li><li>형사소송법과 하위 법규</li>
+  </ol>
+
+  <div class="footer-note"></div>
+
+</section>
+
+<section class="slide type-closing" data-slide-type="closing">
+
+  <div class="wordmark">END</div>
+  <div class="bubbles"></div>
+
+  <div class="meta-tl">
+    <div class="title">디지털포렌식과 형사소송법</div>
+    <div class="sub">제1강 법치주의 국가의 수사권한</div>
+  </div>
+
+  <div class="closing-hero">
+    <h1 class="closing-ko">감사합니다</h1>
+    <div class="divider"></div>
+    <div class="closing-en">Thank You</div>
+    <p class="closing-prompt">질문을 환영합니다 · Q&A</p>
+    <div class="closing-contact"></div>
+  </div>
+
+  <div class="signature"></div>
+
+</section>
+
+</div>
+
+<div class="nav">
+  <button onclick="navSlide(-1)">◀ PREV</button>
+  <span id="nav-indicator">1 / 18</span>
+  <button onclick="navSlide(1)">NEXT ▶</button>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.deck > .slide');
+  function show(i) {
+    // 한 프레임 동안 active 클래스를 모두 제거 후 재부여 → CSS 애니메이션 재발동
+    slides.forEach(s => s.classList.remove('active'));
+    void slides[i].offsetWidth; // 강제 reflow
+    slides[i].classList.add('active');
+    document.getElementById('nav-indicator').textContent = `${i+1} / ${slides.length}`;
+  }
+  function navSlide(d) {
+    current = (current + d + slides.length) % slides.length;
+    show(current);
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') navSlide(1);
+    if (e.key === 'ArrowLeft') navSlide(-1);
+  });
+  show(0);
+</script>
+
+</body>
+</html>
