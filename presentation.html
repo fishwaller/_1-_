@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>디지털포렌식과 형사소송법</title>
 
 <!-- ─────────────────────────────────────────────
@@ -126,17 +127,27 @@
 
 <style>
   /* 슬라이드 네비게이션 (프로토타입) */
+  html, body { overflow: hidden; }
   body { background: #000; --body-scale: 1.5; }
 
   /* 본문 글자 크기 조절 — 편집기 '덱 설정 > 본문 글자 크기'가 --body-scale 을 주입.
      theme.css(위의 <link>) 뒤에 와서 본문 계열 font-size만 덮어쓴다(제목류 제외).
-     값 누락 시 var fallback=1 → 외관 불변. 기준값은 전 테마 공통. */
-  .content-body        { font-size: calc(1.4rem  * var(--body-scale, 1)); }
-  .summary-lead        { font-size: calc(1.4rem  * var(--body-scale, 1)); }
-  .summary-points li   { font-size: calc(1.25rem * var(--body-scale, 1)); }
-  .visual-figure table { font-size: calc(1.1rem  * var(--body-scale, 1)); }
-  .visual-caption      { font-size: calc(0.95rem * var(--body-scale, 1)); }
-  .deck { position: relative; width: 100vw; height: 100vh; }
+     값 누락 시 var fallback=1 → 외관 불변. 기준값은 전 테마 공통.
+     --auto-boost 는 좁은(모바일형) 화면에서 fitCanvas()가 자동으로 키움. */
+  .content-body        { font-size: calc(1.4rem  * var(--body-scale, 1) * var(--auto-boost, 1)); }
+  .summary-lead        { font-size: calc(1.4rem  * var(--body-scale, 1) * var(--auto-boost, 1)); }
+  .summary-points li   { font-size: calc(1.25rem * var(--body-scale, 1) * var(--auto-boost, 1)); }
+  .visual-figure table { font-size: calc(1.1rem  * var(--body-scale, 1) * var(--auto-boost, 1)); }
+  .visual-caption      { font-size: calc(0.95rem * var(--body-scale, 1) * var(--auto-boost, 1)); }
+
+  /* 고정 캔버스(1600x900, 16:9) + 화면에 맞춰 축소/레터박스.
+     기기 종류를 감지하지 않고, 실제 뷰포트 비율로 판단(창 크기 조절·폴더블도 정확히 대응). */
+  .deck {
+    position: fixed; top: 50%; left: 50%;
+    width: 1600px; height: 900px;
+    transform: translate(-50%, -50%) scale(var(--canvas-scale, 1));
+    transform-origin: center center;
+  }
   .deck > .slide {
     position: absolute; inset: 0;
     opacity: 0; visibility: hidden;
@@ -723,6 +734,17 @@
 </div>
 
 <script>
+  function fitCanvas() {
+    const CW = 1600, CH = 900;
+    const scale = Math.min(window.innerWidth / CW, window.innerHeight / CH);
+    document.documentElement.style.setProperty('--canvas-scale', scale);
+    const aspect = window.innerWidth / window.innerHeight;
+    const boost = aspect < 1 ? 1.35 : (aspect < 1.3 ? 1.15 : 1);
+    document.documentElement.style.setProperty('--auto-boost', boost);
+  }
+  window.addEventListener('resize', fitCanvas);
+  fitCanvas();
+
   let current = 0;
   const slides = document.querySelectorAll('.deck > .slide');
   function show(i) {
